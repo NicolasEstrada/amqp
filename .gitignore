@@ -25,3 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#Testing tools config files
+manager.conf
+snmpm_config_db
+erl_crash.dump
+
