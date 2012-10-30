@@ -160,3 +160,43 @@ Percentage of the requests served within a certain time (ms)
   98%     22
   99%     23
  100%     49 (longest request)
+
+
+##### Bjoern Results #####
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   5.735 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      6900000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    17438.16 [#/sec] (mean)
+Time per request:       5.735 [ms] (mean)
+Time per request:       0.057 [ms] (mean, across all concurrent requests)
+Transfer rate:          1175.03 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   0.5      2       7
+Processing:     1    3   0.6      3       9
+Waiting:        1    3   0.7      3       8
+Total:          4    6   0.6      6      11
+
+Percentage of the requests served within a certain time (ms)
+  50%      6
+  66%      6
+  75%      6
+  80%      6
+  90%      7
+  95%      7
+  98%      7
+  99%      8
+ 100%     11 (longest request)
