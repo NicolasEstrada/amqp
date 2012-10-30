@@ -203,8 +203,6 @@ class MQSyncSender(MQ):
         # Handle the case where we are not connected to RMQ
         while not self._connected:
             logging.warning("Waiting RabbitMQ reconnecting ...")
-            print self._connected
-            print self._connecting
             time.sleep(RMQ_SLEEP)
         
         self._channel.basic_publish(

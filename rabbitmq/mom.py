@@ -16,7 +16,7 @@ import mq
 from mq import *
 
 N_SHARDS = 10
-REQUEST_TYPES = ['AUTH', 'DB_INSERT', 'DB_UPDATE', 'DB_VIEW']
+REQUEST_TYPES = ['AUTH', 'DB_INSERT', 'DB_UPDATE', 'DB_VIEW', 'DB_DELETE']
 SHARDS = [i for i in range(N_SHARDS)]
 
 
@@ -27,11 +27,10 @@ class messageOrientedMiddleware(object):
         self.queue_name = kw.get('queue', 'test')
         self.routing_keys = kw.get('rkeys', ['test.#'])
         self.callback = kw.get('callback', self.processing)
-        self.messages = kw.get('messages', 10)
 
-        if kw.has_key('callback'):
+        if 'callback' in kw.keys():
             del kw['callback']
-        if kw.has_key('rkeys'):
+        if 'rkeys' in kw.keys():
             del kw['rkeys']
 
         self.receiver = mq.MQAsyncReceiver(self.queue_name, self.routing_keys, self.callback, **kw)
@@ -39,13 +38,20 @@ class messageOrientedMiddleware(object):
         self.publisher.connect()
         super(messageOrientedMiddleware, self).__init__()
 
-    def test(self):
+    def test(self, messages):
         # Test method
-        for i in xrange(self.messages):
+        for i in xrange(messages):
             # Routing key defined as: <queue>.<request>.<shard>
             msge = jsonhandler.dumps({'message_id': i, 'content': str(uuid.uuid4().hex)})
             self.publisher.publish('test.{0}.{1}'.format(choice(REQUEST_TYPES), i % N_SHARDS), msge)
         self.receiver.connect()
+
+    def publish(self, rkey, body):
+        try:
+            self.publisher.publish(rkey, body)
+            return True
+        except:
+            return False
 
     def processing(self, rkey, body):
         print "Received:", rkey, body
@@ -75,16 +81,16 @@ if __name__ == "__main__":
 
     if opt == str(1):
         mtest = messageOrientedMiddleware(
-            messages=1000, durable=True, queue='auth',
+            durable=True, queue='auth',
             callback=authentication, rkeys=['test.AUTH.*'])
-        mtest.test()
+        mtest.test(1000)
     elif opt == str(2):
         mtest = messageOrientedMiddleware(
-            messages=1000, durable=True, queue='db',
+            durable=True, queue='db',
             callback=db_store, rkeys=['test.DB_INSERT.*'])
-        mtest.test()
+        mtest.test(1000)
     elif opt == str(3):
         mtest = messageOrientedMiddleware(
-            messages=1000, durable=True, queue='shards',
-            callback=db_shards, rkeys=['test.AUTH.3'])
-        mtest.test()
+            durable=True, queue='shards_all',
+            callback=db_shards, rkeys=['test.*.3'])
+        mtest.test(1000)
