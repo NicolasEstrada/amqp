@@ -1,6 +1,13 @@
 This is a simple webserver app for testing.
 
+Gevent web server
 python server.py will listen on port 8088.
+
+Gunicorn web server
+gunicorn -b :8088 -w 1 pong:application
+	-b bind port
+	-w number of workers
+
 
 Apache Benchmark
 
