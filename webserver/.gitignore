@@ -1,0 +1,4 @@
+manager.conf
+snmpm_config_db
+erl_crash.dump
+*.pyc
