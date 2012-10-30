@@ -1,0 +1,36 @@
+Server Software:        gevent/0.13
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   17.354 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      12000000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    5762.22 [#/sec] (mean)
+Time per request:       17.354 [ms] (mean)
+Time per request:       0.174 [ms] (mean, across all concurrent requests)
+Transfer rate:          675.26 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.6      1       7
+Processing:     3   17   4.5     15      40
+Waiting:        2   16   4.5     15      40
+Total:          6   17   4.4     16      41
+
+Percentage of the requests served within a certain time (ms)
+  50%     16
+  66%     18
+  75%     19
+  80%     20
+  90%     23
+  95%     26
+  98%     30
+  99%     32
+ 100%     41 (longest request)
