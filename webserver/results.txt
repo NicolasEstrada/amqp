@@ -1,0 +1,202 @@
+##### Gevent Results #####
+
+Server Software:        gevent/0.13
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   17.354 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      12000000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    5762.22 [#/sec] (mean)
+Time per request:       17.354 [ms] (mean)
+Time per request:       0.174 [ms] (mean, across all concurrent requests)
+Transfer rate:          675.26 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.6      1       7
+Processing:     3   17   4.5     15      40
+Waiting:        2   16   4.5     15      40
+Total:          6   17   4.4     16      41
+
+Percentage of the requests served within a certain time (ms)
+  50%     16
+  66%     18
+  75%     19
+  80%     20
+  90%     23
+  95%     26
+  98%     30
+  99%     32
+ 100%     41 (longest request)
+
+
+##### Gunicorn Results #####
+*** 1 worker.
+
+Server Software:        gunicorn/0.15.0
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   30.176 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      15000000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    3313.86 [#/sec] (mean)
+Time per request:       30.176 [ms] (mean)
+Time per request:       0.302 [ms] (mean, across all concurrent requests)
+Transfer rate:          485.43 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       4
+Processing:     1   30   3.0     29      48
+Waiting:        1   30   3.0     29      47
+Total:          4   30   3.0     29      48
+
+Percentage of the requests served within a certain time (ms)
+  50%     29
+  66%     31
+  75%     33
+  80%     34
+  90%     34
+  95%     35
+  98%     36
+  99%     38
+ 100%     48 (longest request)
+
+
+##### Gunicorn Results #####
+*** 2 workers.
+
+Server Software:        gunicorn/0.15.0
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   17.239 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      15000000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    5800.67 [#/sec] (mean)
+Time per request:       17.239 [ms] (mean)
+Time per request:       0.172 [ms] (mean, across all concurrent requests)
+Transfer rate:          849.71 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.3      0      12
+Processing:     2   17   1.7     17      33
+Waiting:        2   17   1.7     17      33
+Total:          6   17   1.7     17      33
+
+Percentage of the requests served within a certain time (ms)
+  50%     17
+  66%     17
+  75%     18
+  80%     18
+  90%     19
+  95%     20
+  98%     22
+  99%     24
+ 100%     33 (longest request)
+
+
+##### Gunicorn Results #####
+*** 4 workers.
+
+
+Server Software:        gunicorn/0.15.0
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   13.260 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      15000000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    7541.43 [#/sec] (mean)
+Time per request:       13.260 [ms] (mean)
+Time per request:       0.133 [ms] (mean, across all concurrent requests)
+Transfer rate:          1104.70 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.8      0      14
+Processing:     1   13   3.2     12      49
+Waiting:        1   13   3.1     12      49
+Total:          4   13   2.8     12      49
+
+Percentage of the requests served within a certain time (ms)
+  50%     12
+  66%     13
+  75%     14
+  80%     15
+  90%     17
+  95%     19
+  98%     22
+  99%     23
+ 100%     49 (longest request)
+
+
+##### Bjoern Results #####
+
+Server Software:        
+Server Hostname:        127.0.0.1
+Server Port:            8088
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      100
+Time taken for tests:   5.735 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Total transferred:      6900000 bytes
+HTML transferred:       500000 bytes
+Requests per second:    17438.16 [#/sec] (mean)
+Time per request:       5.735 [ms] (mean)
+Time per request:       0.057 [ms] (mean, across all concurrent requests)
+Transfer rate:          1175.03 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   0.5      2       7
+Processing:     1    3   0.6      3       9
+Waiting:        1    3   0.7      3       8
+Total:          4    6   0.6      6      11
+
+Percentage of the requests served within a certain time (ms)
+  50%      6
+  66%      6
+  75%      6
+  80%      6
+  90%      7
+  95%      7
+  98%      7
+  99%      8
+ 100%     11 (longest request)

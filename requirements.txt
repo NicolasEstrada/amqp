@@ -1,0 +1,6 @@
+PyYAML==3.10
+gevent==0.13.8
+greenlet==0.4.0
+wsgiref==0.1.2
+gunicorn==0.15.0
+bjoern==1.2
